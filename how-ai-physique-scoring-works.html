@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How AI Physique Scoring Works — and What Your Score Actually Means</title>
+    <meta name="description" content="AI physique scoring uses computer vision to rate your muscle groups from a photo. Here's exactly how it works, what the scores mean, and how to use them to train smarter.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://chromafit.live/how-ai-physique-scoring-works.html">
+    <link rel="icon" type="image/png" href="/transparenticon.png">
+    <link rel="apple-touch-icon" href="/transparenticon.png">
+    <meta name="apple-itunes-app" content="app-id=6757875996">
+
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="ChromaFit">
+    <meta property="og:url" content="https://chromafit.live/how-ai-physique-scoring-works.html">
+    <meta property="og:title" content="How AI Physique Scoring Works — and What Your Score Actually Means">
+    <meta property="og:description" content="AI physique scoring uses computer vision to rate your muscle groups from a photo. Here's exactly how it works and how to use your results.">
+    <meta property="og:image" content="https://chromafit.live/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How AI Physique Scoring Works — and What Your Score Actually Means">
+    <meta name="twitter:description" content="AI physique scoring uses computer vision to rate your muscle groups from a photo. Here's exactly how it works.">
+    <meta name="twitter:image" content="https://chromafit.live/og-image.png">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "How AI Physique Scoring Works — and What Your Score Actually Means",
+      "description": "AI physique scoring uses computer vision to rate your muscle groups from a photo. Here's exactly how it works, what the scores mean, and how to use them to train smarter.",
+      "url": "https://chromafit.live/how-ai-physique-scoring-works.html",
+      "datePublished": "2026-02-17",
+      "dateModified": "2026-02-17",
+      "publisher": {
+        "@type": "Organization",
+        "name": "ChromaFit",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://chromafit.live/transparenticon.png"
+        }
+      },
+      "mainEntityOfPage": "https://chromafit.live/how-ai-physique-scoring-works.html"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How accurate is AI physique scoring?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "AI physique scoring is consistent and objective — it evaluates the same photo the same way every time, removing subjective bias. Its accuracy depends on photo quality, lighting, and pose. It is best used as a relative tracking tool: comparing your scores over time rather than treating any single score as an absolute measure."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does a physique score of 7 out of 10 mean?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A score of 7/10 for a muscle group means the AI has assessed that muscle as above average in visible development relative to your overall physique. Scores below 5 indicate a relative weakness to prioritize in training. Scores above 8 indicate well-developed muscle. The scores are most useful when tracked over time to measure progress."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What poses work best for AI physique analysis?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Front-facing, back, and side poses all work. For best results: use good natural lighting, wear fitted clothing or no shirt, stand 6–8 feet from the camera, and ensure your full body is in frame. Avoid harsh shadows or backlighting."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --black: #0a0a0a;
+            --gray: #1a1a1a;
+            --gray-light: #999;
+            --white: #f5f5f5;
+            --gold: #C8A84E;
+            --gold-light: #E8C870;
+        }
+        body { background: var(--black); color: var(--white); font-family: 'Manrope', sans-serif; line-height: 1.6; }
+        .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+        .wide { max-width: 860px; }
+
+        nav { padding: 20px 24px; display: flex; align-items: center; justify-content: space-between; max-width: 860px; margin: 0 auto; }
+        .nav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--white); font-family: 'Chakra Petch', sans-serif; font-weight: 700; font-size: 1.1rem; }
+        .nav-brand img { width: 32px; height: 32px; }
+        .nav-cta { background: linear-gradient(135deg, var(--gold-light), var(--gold)); color: #000; padding: 10px 22px; border-radius: 100px; text-decoration: none; font-weight: 800; font-size: .85rem; }
+
+        .breadcrumb { padding: 20px 0 0; font-size: .8rem; color: var(--gray-light); }
+        .breadcrumb a { color: var(--gray-light); text-decoration: none; }
+        .breadcrumb a:hover { color: var(--white); }
+
+        .article-header { padding: 36px 0 40px; }
+        .post-tag { font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; display: block; }
+        h1 { font-family: 'Chakra Petch', sans-serif; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 700; letter-spacing: -.02em; line-height: 1.15; margin-bottom: 1rem; }
+        .article-meta { font-size: .82rem; color: var(--gray-light); }
+
+        .article-body { padding-bottom: 60px; }
+        .article-body p { color: #ccc; margin-bottom: 1.3rem; line-height: 1.85; font-size: 1.02rem; }
+        .article-body h2 { font-family: 'Chakra Petch', sans-serif; font-size: 1.5rem; font-weight: 700; margin: 2.5rem 0 1rem; letter-spacing: -.01em; }
+        .article-body h3 { font-size: 1.05rem; font-weight: 700; margin: 2rem 0 .6rem; }
+        .article-body ul { margin: 0 0 1.3rem 1.2rem; }
+        .article-body ul li { color: #ccc; margin-bottom: .5rem; line-height: 1.7; font-size: 1.02rem; }
+        .article-body strong { color: var(--white); }
+
+        .callout { background: rgba(200,168,78,.07); border: 1px solid rgba(200,168,78,.2); border-radius: 14px; padding: 20px 24px; margin: 1.5rem 0; }
+        .callout p { color: var(--gold-light) !important; margin: 0 !important; font-size: .95rem !important; }
+
+        .score-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: .93rem; }
+        .score-table th { background: var(--gray); padding: 10px 14px; text-align: left; font-size: .75rem; letter-spacing: .06em; text-transform: uppercase; color: var(--gray-light); border-bottom: 1px solid rgba(255,255,255,.08); }
+        .score-table td { padding: 10px 14px; border-bottom: 1px solid rgba(255,255,255,.05); color: #ccc; }
+        .score-table tr:last-child td { border-bottom: none; }
+
+        .app-cta { background: linear-gradient(135deg, rgba(200,168,78,.08), rgba(200,168,78,.03)); border: 1px solid rgba(200,168,78,.2); border-radius: 20px; padding: 32px; text-align: center; margin: 48px 0; }
+        .app-cta h3 { font-family: 'Chakra Petch', sans-serif; font-size: 1.3rem; font-weight: 700; margin-bottom: .5rem; }
+        .app-cta p { color: var(--gray-light); font-size: .93rem; margin-bottom: 1.4rem; }
+        .app-cta img { width: 145px; height: auto; }
+
+        .faq { padding: 20px 0 60px; }
+        .faq h2 { font-family: 'Chakra Petch', sans-serif; font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; }
+        .faq-item { border-bottom: 1px solid rgba(255,255,255,.07); padding: 18px 0; }
+        .faq-item h3 { font-size: .97rem; font-weight: 700; margin-bottom: .5rem; }
+        .faq-item p { color: var(--gray-light); font-size: .92rem; margin: 0; }
+
+        footer { padding: 40px 24px; text-align: center; border-top: 1px solid rgba(255,255,255,.06); color: var(--gray-light); font-size: .85rem; }
+        footer a { color: var(--gray-light); text-decoration: none; margin: 0 10px; }
+        footer a:hover { color: var(--white); }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="/" class="nav-brand">
+        <img src="/transparenticon.png" alt="ChromaFit" width="1024" height="1024">
+        ChromaFit
+    </a>
+    <a href="https://apps.apple.com/us/app/chromafit/id6757875996" target="_blank" rel="noopener" class="nav-cta">Download Free</a>
+</nav>
+
+<div class="container">
+    <div class="breadcrumb">
+        <a href="/">Home</a> &rsaquo; <a href="/blog.html">Blog</a> &rsaquo; How AI Physique Scoring Works
+    </div>
+
+    <header class="article-header">
+        <span class="post-tag">AI &amp; Physique</span>
+        <h1>How AI Physique Scoring Works — and What Your Score Actually Means</h1>
+        <div class="article-meta">Feb 17, 2026 &nbsp;·&nbsp; 7 min read</div>
+    </header>
+
+    <article class="article-body">
+
+        <p>AI physique scoring is one of the most talked-about features in fitness tech right now — and also one of the most misunderstood. When you take a photo of your body and get a score back, what is the AI actually measuring? How reliable are those numbers? And more importantly, how should you use them?</p>
+
+        <p>This guide breaks down exactly how AI physique scoring works, what the scores represent, and how to act on the results to make real progress in the gym.</p>
+
+        <h2>What Is AI Physique Scoring?</h2>
+
+        <p>AI physique scoring uses <strong>computer vision</strong> — a branch of artificial intelligence that enables machines to interpret and analyze visual information — to assess the visible muscular development in a photo of your body.</p>
+
+        <p>Unlike older body composition tools that required DEXA scans, hydrostatic weighing, or calipers, AI physique scoring works from a standard iPhone photo. The AI identifies your major muscle groups within the image and generates individual scores for each one based on their visible size, definition, and proportion relative to your overall physique.</p>
+
+        <p>The result is a detailed breakdown of your current physique — scored muscle-by-muscle — that would otherwise require a personal trainer or physique coach to assess manually.</p>
+
+        <h2>How the AI Analyzes Your Body</h2>
+
+        <p>When you submit a photo to ChromaFit's Physique Lab, the AI processes it through several stages:</p>
+
+        <h3>1. Pose Detection and Body Segmentation</h3>
+        <p>First, the model identifies your body within the image and detects your pose — whether you're facing front, back, or to the side. It maps key anatomical landmarks (shoulders, elbows, hips, knees, ankles) to understand your body's geometry and proportions.</p>
+
+        <h3>2. Muscle Group Identification</h3>
+        <p>Using the body map, the AI segments each major muscle group visible in the photo. For a front pose, this includes the chest, shoulders, arms, core, and quads. For a back pose, the back, rear delts, hamstrings, and calves become visible and scoreable.</p>
+
+        <h3>3. Individual Muscle Scoring</h3>
+        <p>Each identified muscle group is scored on a <strong>1–10 scale</strong> based on visible muscular development — how full, defined, and proportionate the muscle appears. The scoring accounts for body fat level in relation to muscle visibility: the same amount of muscle mass will score differently at 10% body fat versus 20%.</p>
+
+        <h3>4. Proportion Analysis</h3>
+        <p>Beyond individual scores, the AI evaluates your overall proportions — shoulder-to-waist ratio, upper-to-lower body balance, left-to-right symmetry. Poor proportions are flagged even when individual muscle scores are high.</p>
+
+        <h3>5. Workout Plan Generation</h3>
+        <p>Your scores and proportion analysis feed directly into a personalized workout plan. Muscle groups with lower scores get prioritized — more volume, more frequency. Well-developed groups are maintained rather than overemphasized.</p>
+
+        <h2>What Your Score Actually Means</h2>
+
+        <p>Here's how to interpret the 1–10 scale:</p>
+
+        <table class="score-table">
+            <thead>
+                <tr>
+                    <th>Score</th>
+                    <th>What It Means</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td><strong>1–3</strong></td><td>Underdeveloped — this muscle group needs significant work and should be a primary focus in training</td></tr>
+                <tr><td><strong>4–5</strong></td><td>Below average — present but lagging; include as a secondary priority</td></tr>
+                <tr><td><strong>6–7</strong></td><td>Above average — well-developed; maintain with current training volume</td></tr>
+                <tr><td><strong>8–9</strong></td><td>Highly developed — strong visual presence; reduce volume if you want to balance other areas</td></tr>
+                <tr><td><strong>10</strong></td><td>Elite development for this muscle — rare; focus training elsewhere</td></tr>
+            </tbody>
+        </table>
+
+        <div class="callout">
+            <p><strong>Key insight:</strong> A score of 7 in shoulders doesn't mean your shoulders are objectively "7/10". It means your shoulders are well-developed relative to the rest of your physique as seen in that photo. Scores are relative, not absolute — and that's exactly what makes them useful for training decisions.</p>
+        </div>
+
+        <h2>The 8 Muscle Groups Scored by ChromaFit</h2>
+
+        <ul>
+            <li><strong>Shoulders</strong> — deltoid roundness, width, and capping</li>
+            <li><strong>Chest</strong> — pec fullness, upper/lower balance, definition</li>
+            <li><strong>Arms</strong> — bicep peak, tricep sweep, forearm development</li>
+            <li><strong>Back</strong> — lat width, back thickness, taper</li>
+            <li><strong>Core</strong> — ab visibility, oblique development, waist tightness</li>
+            <li><strong>Quads</strong> — sweep, teardrop, overall size relative to upper body</li>
+            <li><strong>Hamstrings / Glutes</strong> — hamstring tie-in, glute roundness, separation</li>
+            <li><strong>Calves</strong> — overall size, gastrocnemius development, symmetry</li>
+        </ul>
+
+        <h2>How to Take the Best Photo for AI Analysis</h2>
+
+        <p>The accuracy of your scores depends significantly on photo quality. Follow these guidelines:</p>
+
+        <ul>
+            <li><strong>Lighting:</strong> Use natural light or even indoor lighting. Avoid harsh shadows, direct sunlight from the side, or bright backlighting — all of which obscure muscle detail.</li>
+            <li><strong>Clothing:</strong> Fitted athletic wear or no shirt gives the AI the most data. Baggy clothing hides muscle groups and reduces score accuracy.</li>
+            <li><strong>Distance:</strong> Stand 6–8 feet from the camera so your full body is in frame with some margin. Cropped photos miss entire muscle groups.</li>
+            <li><strong>Pose:</strong> Stand naturally upright. You don't need to flex, but a relaxed flex helps the AI assess muscle development more accurately.</li>
+            <li><strong>Consistency:</strong> Use the same pose, location, and lighting for every scan so your progress scores are directly comparable over time.</li>
+        </ul>
+
+        <h2>How Accurate Is AI Physique Scoring?</h2>
+
+        <p>AI physique scoring is <strong>consistent and objective</strong> — the same photo will receive the same scores every time, eliminating the subjective bias of a human coach. That consistency is its greatest strength as a progress-tracking tool.</p>
+
+        <p>What it cannot do is replicate a DEXA scan for body fat percentage or assess muscle fiber composition. It works entirely from visual data, which means lighting, clothing, and photo angle all affect the output.</p>
+
+        <p>The right way to use AI physique scoring is as a <strong>relative tracking tool</strong>: submit photos every 4–8 weeks under consistent conditions and watch your scores change over time. A shoulder score moving from 5.2 to 6.8 over 3 months is meaningful data — it tells you your training and nutrition are producing visible results in that specific muscle group.</p>
+
+        <h2>Using Your Scores to Train Smarter</h2>
+
+        <p>The most common mistake people make with physique scoring is ignoring the low scores and continuing to train the muscles they already enjoy training. Chest and arms scores of 8–9 won't make your physique look better — but bringing a 3/10 hamstring score up to a 6 will transform your overall appearance.</p>
+
+        <p>Let your scores guide your training allocation:</p>
+
+        <ul>
+            <li>Muscle groups scoring 1–4: Add a dedicated weekly session and prioritize compound movements for that group</li>
+            <li>Muscle groups scoring 5–6: Maintain current volume, focus on execution and progressive overload</li>
+            <li>Muscle groups scoring 7+: Reduce volume if you want to shift focus; maintenance work only</li>
+        </ul>
+
+        <p>This data-driven approach to training prioritization is more effective than following generic programs that treat everyone's weaknesses as identical.</p>
+
+        <div class="app-cta">
+            <h3>Get Your Physique Score</h3>
+            <p>Take a photo and get AI-scored results for 8 muscle groups, proportion analysis, and a custom workout plan — all in ChromaFit, free on iOS.</p>
+            <a href="https://apps.apple.com/us/app/chromafit/id6757875996" target="_blank" rel="noopener">
+                <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download ChromaFit on the App Store" width="250" height="83">
+            </a>
+        </div>
+
+        <section class="faq">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <h3>How accurate is AI physique scoring?</h3>
+                <p>Highly consistent — the same photo gets the same scores every time. Accuracy depends on photo quality. Use it as a relative tracking tool over time rather than a one-time absolute measure.</p>
+            </div>
+            <div class="faq-item">
+                <h3>What does a score of 7 out of 10 mean?</h3>
+                <p>It means that muscle group is well-developed relative to your overall physique. Scores are relative, not absolute — a 7 in arms means your arms are a strength compared to your legs, for example.</p>
+            </div>
+            <div class="faq-item">
+                <h3>What poses work best for AI physique analysis?</h3>
+                <p>Front, back, and side poses all work. Use even lighting, fitted clothing, stand 6–8 feet from the camera, and keep your full body in frame for the most accurate results.</p>
+            </div>
+            <div class="faq-item">
+                <h3>How often should I scan my physique?</h3>
+                <p>Every 4–8 weeks under consistent conditions. Physique changes slowly — weekly scanning creates noise. Monthly scans give you meaningful trend data.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Does ChromaFit store my physique photos?</h3>
+                <p>No. Photos are processed securely and never stored on ChromaFit's servers or shared with third parties.</p>
+            </div>
+        </section>
+
+    </article>
+</div>
+
+<footer>
+    <a href="/">Home</a>
+    <a href="/blog.html">Blog</a>
+    <a href="/physique-lab.html">Physique Lab</a>
+    <a href="/food-scanner.html">Food Scanner</a>
+    <a href="/tdee-calculator.html">TDEE Calculator</a>
+    <a href="/privacy.html">Privacy</a>
+    <br><br>
+    &copy; 2026 ChromaFit. All rights reserved.
+</footer>
+
+</body>
+</html>
