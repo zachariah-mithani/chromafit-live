@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>You're In — ChromaFit</title>
+    <meta name="robots" content="noindex, follow">
+    <link rel="icon" type="image/png" href="/transparenticon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --black: #0a0a0a; --gray: #1a1a1a; --gray-light: #999; --white: #f5f5f5; --gold: #C8A84E; --gold-light: #E8C870; }
+        body { background: var(--black); color: var(--white); font-family: 'Manrope', sans-serif; line-height: 1.6; min-height: 100vh; display: flex; flex-direction: column; }
+        nav { padding: 20px 24px; display: flex; align-items: center; justify-content: space-between; max-width: 860px; margin: 0 auto; width: 100%; }
+        .nav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--white); font-family: 'Chakra Petch', sans-serif; font-weight: 700; font-size: 1.1rem; }
+        .nav-brand img { width: 32px; height: 32px; }
+        .hero { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 60px 24px; }
+        .checkmark { width: 72px; height: 72px; background: linear-gradient(135deg, var(--gold-light), var(--gold)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 2rem; font-size: 2rem; }
+        h1 { font-family: 'Chakra Petch', sans-serif; font-size: clamp(2rem, 5vw, 3rem); font-weight: 700; letter-spacing: -.02em; margin-bottom: 1rem; }
+        .subtitle { color: var(--gray-light); font-size: 1.05rem; max-width: 480px; margin: 0 auto 2.5rem; line-height: 1.7; }
+        .app-cta { background: linear-gradient(135deg, rgba(200,168,78,.1), rgba(200,168,78,.04)); border: 1px solid rgba(200,168,78,.25); border-radius: 20px; padding: 32px; max-width: 440px; width: 100%; margin: 0 auto 3rem; }
+        .app-cta h3 { font-family: 'Chakra Petch', sans-serif; font-size: 1.2rem; font-weight: 700; margin-bottom: .5rem; }
+        .app-cta p { color: var(--gray-light); font-size: .92rem; margin-bottom: 1.4rem; }
+        .app-cta img { width: 140px; height: auto; }
+        .posts-section { max-width: 680px; width: 100%; margin: 0 auto; padding: 0 24px; }
+        .posts-section h2 { font-family: 'Chakra Petch', sans-serif; font-size: 1.2rem; font-weight: 700; margin-bottom: 1.2rem; text-align: center; color: var(--gray-light); }
+        .post-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+        .post-card { background: var(--gray); border-radius: 14px; padding: 20px; border: 1px solid rgba(255,255,255,.06); text-decoration: none; color: var(--white); transition: border-color .3s, transform .3s; display: block; }
+        .post-card:hover { border-color: rgba(200,168,78,.3); transform: translateY(-2px); }
+        .post-tag { font-size: .65rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; display: block; }
+        .post-card h3 { font-size: .9rem; font-weight: 700; line-height: 1.4; color: var(--white); }
+        footer { padding: 40px 24px; text-align: center; border-top: 1px solid rgba(255,255,255,.06); color: var(--gray-light); font-size: .85rem; }
+        footer a { color: var(--gray-light); text-decoration: none; margin: 0 10px; }
+        footer a:hover { color: var(--white); }
+    </style>
+</head>
+<body>
+<nav>
+    <a href="/" class="nav-brand"><img src="/transparenticon.png" alt="ChromaFit" width="1024" height="1024">ChromaFit</a>
+</nav>
+
+<div class="hero">
+    <div class="checkmark">✓</div>
+    <h1>You're In.</h1>
+    <p class="subtitle">Thanks for subscribing. You'll get ChromaFit tips, new content, and updates on what's coming — straight to your inbox.</p>
+
+    <div class="app-cta">
+        <h3>Start Tracking Now</h3>
+        <p>Scan your physique, log your meals with AI, and track your progress — all in one free app.</p>
+        <a href="https://apps.apple.com/us/app/chromafit/id6757875996" target="_blank" rel="noopener">
+            <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download ChromaFit on the App Store" width="250" height="83">
+        </a>
+    </div>
+
+    <div class="posts-section">
+        <h2>Read while you wait</h2>
+        <div class="post-grid">
+            <a href="/how-ai-physique-scoring-works.html" class="post-card">
+                <span class="post-tag">AI & Physique</span>
+                <h3>How AI Physique Scoring Works</h3>
+            </a>
+            <a href="/protein-intake-muscle-building.html" class="post-card">
+                <span class="post-tag">Nutrition</span>
+                <h3>How Much Protein Do You Need?</h3>
+            </a>
+            <a href="/progressive-overload-guide.html" class="post-card">
+                <span class="post-tag">Training</span>
+                <h3>Progressive Overload: The Only Rule</h3>
+            </a>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <a href="/">Home</a><a href="/blog.html">Blog</a><a href="/privacy.html">Privacy</a>
+    <br><br>&copy; 2026 ChromaFit. All rights reserved.
+</footer>
+</body>
+</html>
