@@ -947,6 +947,33 @@
         }
 
         /* ═══════════════════════════════════════
+           TOOLS SECTION
+        ═══════════════════════════════════════ */
+        .tools-section { padding: 80px 0; text-align: center; }
+        .tools-section h2 { font-family: 'Chakra Petch', sans-serif; font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 700; letter-spacing: -.02em; margin-bottom: .6rem; }
+        .tools-section .tools-sub { color: var(--gray-light); margin-bottom: 2.5rem; }
+        .tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; text-align: left; }
+        .tool-card { background: var(--gray); border-radius: 20px; padding: 28px; border: 1px solid rgba(255,255,255,.06); text-decoration: none; color: var(--white); transition: border-color .3s, transform .3s; display: block; }
+        .tool-card:hover { border-color: rgba(200,168,78,.3); transform: translateY(-3px); }
+        .tool-icon { font-size: 1.8rem; margin-bottom: 12px; }
+        .tool-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: .4rem; }
+        .tool-card p { font-size: .85rem; color: var(--gray-light); }
+        .tool-arrow { font-size: .85rem; color: var(--gold); font-weight: 700; margin-top: 14px; display: block; }
+
+        /* ═══════════════════════════════════════
+           EMAIL CAPTURE
+        ═══════════════════════════════════════ */
+        .email-capture { padding: 80px 0; }
+        .email-card { background: linear-gradient(135deg, rgba(200,168,78,.07), rgba(200,168,78,.02)); border: 1px solid rgba(200,168,78,.18); border-radius: 24px; padding: 52px 40px; text-align: center; }
+        .email-card h2 { font-family: 'Chakra Petch', sans-serif; font-size: clamp(1.6rem, 3.5vw, 2.2rem); font-weight: 700; margin-bottom: .7rem; }
+        .email-card p { color: var(--gray-light); margin-bottom: 2rem; max-width: 440px; margin-left: auto; margin-right: auto; }
+        .email-form { display: flex; gap: 10px; max-width: 460px; margin: 0 auto; flex-wrap: wrap; justify-content: center; }
+        .email-input { flex: 1; min-width: 210px; padding: 14px 18px; background: rgba(0,0,0,.4); border: 1px solid rgba(255,255,255,.12); border-radius: 12px; color: var(--white); font-family: 'Manrope', sans-serif; font-size: .95rem; outline: none; transition: border-color .2s; }
+        .email-input:focus { border-color: var(--gold); }
+        .email-btn { padding: 14px 26px; background: linear-gradient(135deg, var(--gold-light), var(--gold)); color: #000; border: none; border-radius: 12px; font-family: 'Manrope', sans-serif; font-weight: 800; font-size: .9rem; cursor: pointer; white-space: nowrap; }
+        .email-note { font-size: .78rem; color: var(--gray-mid); margin-top: 12px; }
+
+        /* ═══════════════════════════════════════
            FOOTER
         ═══════════════════════════════════════ */
         .site-footer {
@@ -1267,6 +1294,40 @@
         </div>
     </section>
 
+    <!-- ════════ TOOLS & RESOURCES ════════ -->
+    <section class="tools-section">
+        <div class="container">
+            <h2 class="fade-in">Free Tools & Guides</h2>
+            <p class="tools-sub fade-in stagger-1">Everything you need to train and eat smarter — no sign-up required.</p>
+            <div class="tools-grid">
+                <a href="/physique-lab.html" class="tool-card fade-in stagger-1">
+                    <div class="tool-icon">🏆</div>
+                    <h3>Physique Lab</h3>
+                    <p>AI scores your 8 muscle groups from a photo and builds your workout plan.</p>
+                    <span class="tool-arrow">Learn more →</span>
+                </a>
+                <a href="/food-scanner.html" class="tool-card fade-in stagger-2">
+                    <div class="tool-icon">📷</div>
+                    <h3>AI Food Scanner</h3>
+                    <p>Point your camera at any meal and get instant calories and macros.</p>
+                    <span class="tool-arrow">Learn more →</span>
+                </a>
+                <a href="/tdee-calculator.html" class="tool-card fade-in stagger-3">
+                    <div class="tool-icon">🔥</div>
+                    <h3>TDEE Calculator</h3>
+                    <p>Find your daily calorie target for fat loss, maintenance, or muscle gain.</p>
+                    <span class="tool-arrow">Calculate free →</span>
+                </a>
+                <a href="/body-fat-calculator.html" class="tool-card fade-in stagger-4">
+                    <div class="tool-icon">📊</div>
+                    <h3>Body Fat Calculator</h3>
+                    <p>Estimate your body fat percentage using the Navy method. Free and instant.</p>
+                    <span class="tool-arrow">Calculate free →</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- ════════ PRICING ════════ -->
     <section class="pricing">
         <div class="container">
@@ -1302,6 +1363,23 @@
         </div>
     </section>
 
+    <!-- ════════ EMAIL CAPTURE ════════ -->
+    <section class="email-capture">
+        <div class="container">
+            <div class="email-card fade-in">
+                <h2>Get Fitness Tips & App Updates</h2>
+                <p>Join the ChromaFit list for physique training guides, nutrition science, and new feature drops. No spam, ever.</p>
+                <form class="email-form" name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                    <input type="hidden" name="form-name" value="newsletter">
+                    <input type="hidden" name="bot-field">
+                    <input class="email-input" type="email" name="email" placeholder="your@email.com" required>
+                    <button class="email-btn" type="submit">Subscribe</button>
+                </form>
+                <p class="email-note">No spam. Unsubscribe anytime.</p>
+            </div>
+        </div>
+    </section>
+
     <!-- ════════ FINAL CTA ════════ -->
     <section class="final-cta">
         <div class="container fade-in">
@@ -1321,9 +1399,14 @@
                 ChromaFit
             </div>
             <div class="footer-links">
-                <a href="privacy.html">Privacy Policy</a>
+                <a href="/physique-lab.html">Physique Lab</a>
+                <a href="/food-scanner.html">Food Scanner</a>
+                <a href="/tdee-calculator.html">TDEE Calculator</a>
+                <a href="/body-fat-calculator.html">Body Fat Calculator</a>
+                <a href="/blog.html">Blog</a>
+                <a href="/privacy.html">Privacy Policy</a>
                 <a href="http://www.apple.com/legal/itunes/appstore/dev/stdeula" target="_blank">Terms of Service</a>
-                <a href="support.html">Support</a>
+                <a href="/support.html">Support</a>
                 <a href="mailto:chromafitapp@gmail.com">Contact</a>
             </div>
             <div class="footer-copy">&copy; 2026 ChromaFit. All rights reserved.</div>
