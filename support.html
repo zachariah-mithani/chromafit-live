@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChromaFit Support</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #0a0a0a;
+            --gray: #1a1a1a;
+            --gray-mid: #555;
+            --gray-light: #999;
+            --white: #f5f5f5;
+            --gold: #C8A84E;
+            --gold-light: #E8D48B;
+            --gold-dark: #9A7B2F;
+        }
+
+        body {
+            font-family: 'Manrope', -apple-system, sans-serif;
+            line-height: 1.65;
+            background: var(--black);
+            color: var(--white);
+            padding: 40px 20px;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='3.5' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.07'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 9999;
+            mix-blend-mode: overlay;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(17, 17, 17, 0.6);
+            padding: 50px;
+            border-radius: 16px;
+            border: 1px solid rgba(200, 168, 78, 0.15);
+            backdrop-filter: blur(20px);
+            position: relative;
+            z-index: 1;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Chakra Petch', sans-serif;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            background: linear-gradient(180deg, var(--gold-light) 0%, var(--gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            margin-bottom: 15px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid rgba(200, 168, 78, 0.3);
+            line-height: 0.95;
+        }
+
+        h1 + p {
+            color: var(--gray-light);
+            margin: 0 0 40px 0;
+            font-weight: 500;
+        }
+
+        .support-card {
+            background: rgba(200, 168, 78, 0.03);
+            padding: 30px;
+            margin: 25px 0;
+            border-radius: 12px;
+            border: 1.5px solid rgba(200, 168, 78, 0.15);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .support-card:hover {
+            border-color: rgba(200, 168, 78, 0.3);
+            background: rgba(200, 168, 78, 0.05);
+            transform: translateY(-2px);
+        }
+
+        .support-card h3 {
+            color: var(--gold-light);
+            font-size: 1.3rem;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .support-card p {
+            margin: 14px 0;
+            color: rgba(245, 245, 245, 0.85);
+            font-size: 0.98rem;
+        }
+
+        .support-card ul {
+            margin: 14px 0 14px 25px;
+            color: rgba(245, 245, 245, 0.85);
+        }
+
+        .support-card li {
+            margin: 10px 0;
+            line-height: 1.7;
+        }
+
+        a {
+            color: var(--gold-light);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--gold);
+            text-decoration: underline;
+        }
+
+        .contact-box {
+            background: linear-gradient(135deg, rgba(200, 168, 78, 0.2) 0%, rgba(200, 168, 78, 0.1) 100%);
+            border: 2px solid rgba(200, 168, 78, 0.4);
+            color: var(--white);
+            padding: 35px;
+            border-radius: 12px;
+            text-align: center;
+            margin: 35px 0;
+        }
+
+        .contact-box h2 {
+            color: var(--gold-light);
+            margin: 0 0 12px 0;
+            font-size: 1.6rem;
+        }
+
+        .contact-box p {
+            margin: 10px 0;
+        }
+
+        .contact-box a {
+            color: var(--gold-light);
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        .contact-box a:hover {
+            color: var(--gold);
+        }
+
+        footer {
+            margin-top: 60px;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            color: var(--gray-light);
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--gold);
+            margin: 0 12px;
+        }
+
+        .emoji {
+            font-size: 1.6rem;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+
+        strong {
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 40px 30px;
+            }
+
+            body {
+                padding: 20px 16px;
+            }
+
+            .support-card {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>ChromaFit Support</h1>
+        <p style="color: #666; margin: 15px 0 30px 0;">We're here to help! Find answers to common questions below or contact us directly.</p>
+
+        <!-- Subscriptions & Billing -->
+        <div class="support-card">
+            <h3><span class="emoji">💰</span> Subscriptions & Billing</h3>
+
+            <p><strong>Managing Your Subscription:</strong></p>
+            <p>To view, change, or cancel your ChromaFit Pro subscription:</p>
+            <ul>
+                <li>Open <strong>Settings</strong> on your iPhone</li>
+                <li>Tap your name at the top</li>
+                <li>Tap <strong>Subscriptions</strong></li>
+                <li>Select <strong>ChromaFit</strong></li>
+                <li>Choose your preferred option (cancel, change plan, etc.)</li>
+            </ul>
+
+            <p><strong>Restoring Purchases:</strong></p>
+            <p>If you previously purchased ChromaFit Pro and it's not showing:</p>
+            <ul>
+                <li>Open ChromaFit</li>
+                <li>Go to Settings</li>
+                <li>Tap "Restore Purchases"</li>
+            </ul>
+
+            <p><strong>Refund Requests:</strong></p>
+            <p>For refunds, please contact Apple directly at <a href="https://reportaproblem.apple.com" target="_blank">reportaproblem.apple.com</a></p>
+        </div>
+
+        <!-- Health Data & Syncing -->
+        <div class="support-card">
+            <h3><span class="emoji">🏃</span> Health Data & Syncing</h3>
+
+            <p><strong>Steps, Calories, or Weight Not Syncing?</strong></p>
+            <p>ChromaFit integrates with Apple HealthKit. To ensure proper syncing:</p>
+            <ul>
+                <li>Open <strong>Settings</strong> > <strong>Health</strong></li>
+                <li>Tap <strong>Data Access & Devices</strong></li>
+                <li>Select <strong>ChromaFit</strong></li>
+                <li>Make sure all relevant categories are turned <strong>ON</strong> (Steps, Active Energy, Dietary Energy, Body Mass)</li>
+            </ul>
+
+            <p><strong>Water Tracking:</strong></p>
+            <p>Water intake is tracked directly in ChromaFit (not HealthKit). Simply tap the quick-add buttons (+8, +16, or custom) to log your hydration throughout the day.</p>
+        </div>
+
+        <!-- Physique Lab -->
+        <div class="support-card">
+            <h3><span class="emoji">💪</span> Physique Lab & AI Analysis</h3>
+
+            <p><strong>Getting Accurate Physique Scores:</strong></p>
+            <p>For best results when scanning your physique:</p>
+            <ul>
+                <li>Use good lighting (natural light works best)</li>
+                <li>Stand against a plain background</li>
+                <li>Take photos from front, back, or side angles</li>
+                <li>Wear form-fitting clothing or take shirtless photos</li>
+                <li>Stand with arms slightly away from body</li>
+            </ul>
+
+            <p><strong>Workout Plan Generation:</strong></p>
+            <p>After receiving your AI scores, you can generate personalized 3-6 day workout splits. Pro members get 20 workout plans per month, while free users get 3.</p>
+
+            <p><strong>Scan Limits:</strong></p>
+            <ul>
+                <li><strong>Free:</strong> 3 physique scans/month</li>
+                <li><strong>Pro:</strong> 50 physique scans/month</li>
+            </ul>
+        </div>
+
+        <!-- Food Scanner -->
+        <div class="support-card">
+            <h3><span class="emoji">🍔</span> AI Food Scanner</h3>
+
+            <p><strong>Getting Accurate Meal Analysis:</strong></p>
+            <p>For best scanning results:</p>
+            <ul>
+                <li>Take photos in good lighting</li>
+                <li>Capture the entire meal in frame</li>
+                <li>Avoid blurry or dark photos</li>
+                <li>Include all components of your meal</li>
+            </ul>
+
+            <p><strong>Food Scanner Limits:</strong></p>
+            <ul>
+                <li><strong>Free:</strong> 1 food scan/month</li>
+                <li><strong>Pro:</strong> Unlimited food scanning with full macro breakdown</li>
+            </ul>
+
+            <p><strong>Note:</strong> AI estimates are approximate. For critical dietary needs, consult nutrition labels or a registered dietitian.</p>
+        </div>
+
+        <!-- Technical Issues -->
+        <div class="support-card">
+            <h3><span class="emoji">⚙️</span> Technical Issues</h3>
+
+            <p><strong>App Crashes or Freezes:</strong></p>
+            <ul>
+                <li>Force quit the app and reopen</li>
+                <li>Restart your iPhone</li>
+                <li>Check for ChromaFit updates in the App Store</li>
+                <li>Ensure you're running iOS 15.0 or later</li>
+            </ul>
+
+            <p><strong>Data Not Saving:</strong></p>
+            <p>Make sure you have a stable internet connection. ChromaFit syncs data to iCloud to prevent data loss.</p>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="contact-box">
+            <h2>Still Need Help?</h2>
+            <p>Contact our support team:</p>
+            <a href="mailto:chromafitapp@gmail.com">chromafitapp@gmail.com</a>
+            <p style="margin-top: 15px; font-size: 0.9rem;">We typically respond within 24-48 hours.</p>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2026 ChromaFit. All rights reserved.</p>
+            <p style="margin-top: 10px;">
+                <a href="privacy.html">Privacy Policy</a> •
+                <a href="http://www.apple.com/legal/itunes/appstore/dev/stdeula" target="_blank">Terms of Service</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
