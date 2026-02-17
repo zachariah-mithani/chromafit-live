@@ -100,8 +100,23 @@
     }
     </script>
 
+    <!-- Structured Data: Organization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "ChromaFit",
+      "url": "https://chromafit.live/",
+      "logo": "https://chromafit.live/transparenticon.png",
+      "sameAs": [
+        "https://apps.apple.com/us/app/chromafit/id6757875996"
+      ]
+    }
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="image" href="/transparenticon.png">
     <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -1046,7 +1061,7 @@
     <!-- ════════ HERO ════════ -->
     <section class="hero">
         <div class="hero-content container">
-            <img src="transparenticon.png" alt="ChromaFit Logo" class="hero-logo">
+            <img src="transparenticon.png" alt="ChromaFit Logo" class="hero-logo" width="1024" height="1024">
             <h1>ChromaFit</h1>
             <p class="hero-value-prop">AI scores your physique. Camera scans your meals.<br>One app tracks everything.</p>
             <p class="hero-sub">Physique analysis, food scanning, and full-body tracking — color-coded and effortless.</p>
@@ -1059,15 +1074,15 @@
             <div class="mockup-container">
                 <div class="mockup-phone">
                     <div class="mockup-slides">
-                        <div class="mockup-slide"><img src="7.png" alt="ChromaFit Intro"></div>
-                        <div class="mockup-slide"><img src="2.png" alt="Calories Room"></div>
-                        <div class="mockup-slide"><img src="4.png" alt="Weight Room"></div>
-                        <div class="mockup-slide"><img src="1.png" alt="Water Room"></div>
-                        <div class="mockup-slide"><img src="3.png" alt="Steps Room"></div>
-                        <div class="mockup-slide"><img src="6.png" alt="Food Scanner"></div>
-                        <div class="mockup-slide"><img src="9.png" alt="Scan Physique"></div>
-                        <div class="mockup-slide"><img src="8.png" alt="Workout Plans"></div>
-                        <div class="mockup-slide"><img src="5.png" alt="AI Physique Scores"></div>
+                        <div class="mockup-slide"><img src="7.png" alt="ChromaFit Intro" width="1179" height="2556"></div>
+                        <div class="mockup-slide"><img src="2.png" alt="Calories Room" width="1179" height="2556" loading="lazy"></div>
+                        <div class="mockup-slide"><img src="4.png" alt="Weight Room" width="1179" height="2556" loading="lazy"></div>
+                        <div class="mockup-slide"><img src="1.png" alt="Water Room" width="1179" height="2556" loading="lazy"></div>
+                        <div class="mockup-slide"><img src="3.png" alt="Steps Room" width="1179" height="2556" loading="lazy"></div>
+                        <div class="mockup-slide"><img src="6.png" alt="Food Scanner" width="1179" height="2556" loading="lazy"></div>
+                        <div class="mockup-slide"><img src="9.png" alt="Scan Physique" width="1179" height="2556" loading="lazy"></div>
+                        <div class="mockup-slide"><img src="8.png" alt="Workout Plans" width="1179" height="2556" loading="lazy"></div>
+                        <div class="mockup-slide"><img src="5.png" alt="AI Physique Scores" width="1179" height="2556" loading="lazy"></div>
                     </div>
                 </div>
             </div>
@@ -1118,15 +1133,17 @@
                 <div class="muscle-chip">Calves</div>
             </div>
 
+            <p style="font-size: .8rem; color: var(--gray-mid); margin-bottom: 2rem;">🔒 Photos are processed securely and never stored or shared.</p>
+
             <div class="physique-gallery">
                 <div class="physique-screenshot fade-in stagger-1">
-                    <img src="9.png" alt="Scan Your Physique">
+                    <img src="9.png" alt="Scan Your Physique" width="1179" height="2556" loading="lazy">
                 </div>
                 <div class="physique-screenshot fade-in stagger-2">
-                    <img src="5.png" alt="AI Physique Scores">
+                    <img src="5.png" alt="AI Physique Scores" width="1179" height="2556" loading="lazy">
                 </div>
                 <div class="physique-screenshot fade-in stagger-3">
-                    <img src="8.png" alt="Custom Workout Plans">
+                    <img src="8.png" alt="Custom Workout Plans" width="1179" height="2556" loading="lazy">
                 </div>
             </div>
         </div>
@@ -1142,7 +1159,7 @@
                     <div class="food-highlight">Pro members get unlimited scans with full nutritional data.</div>
                 </div>
                 <div class="food-phone fade-in stagger-1">
-                    <img src="6.png" alt="Food Scanner - Meal Analysis">
+                    <img src="6.png" alt="Food Scanner - Meal Analysis" width="1179" height="2556" loading="lazy">
                 </div>
             </div>
         </div>
@@ -1178,7 +1195,7 @@
                     </ul>
                 </div>
                 <div class="room-visual">
-                    <img src="2.png" alt="Calories Room">
+                    <img src="2.png" alt="Calories Room" width="1179" height="2556" loading="lazy">
                 </div>
             </div>
         </div>
@@ -1189,7 +1206,7 @@
         <div class="container">
             <div class="room-content">
                 <div class="room-visual">
-                    <img src="4.png" alt="Steps Room">
+                    <img src="4.png" alt="Steps Room" width="1179" height="2556" loading="lazy">
                 </div>
                 <div>
                     <div class="room-icon">🚶</div>
@@ -1222,7 +1239,7 @@
                     </ul>
                 </div>
                 <div class="room-visual">
-                    <img src="1.png" alt="Water Room">
+                    <img src="1.png" alt="Water Room" width="1179" height="2556" loading="lazy">
                 </div>
             </div>
         </div>
@@ -1233,7 +1250,7 @@
         <div class="container">
             <div class="room-content">
                 <div class="room-visual">
-                    <img src="3.png" alt="Weight Room">
+                    <img src="3.png" alt="Weight Room" width="1179" height="2556" loading="lazy">
                 </div>
                 <div>
                     <div class="room-icon">⚖️</div>

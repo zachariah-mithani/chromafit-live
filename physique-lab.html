@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Physique Scoring — ChromaFit Physique Lab</title>
+    <meta name="description" content="ChromaFit's Physique Lab uses AI to score 8 muscle groups from a photo, analyze your proportions, and generate a personalized workout plan. Free on iOS.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://chromafit.live/physique-lab.html">
+    <link rel="icon" type="image/png" href="/transparenticon.png">
+    <link rel="apple-touch-icon" href="/transparenticon.png">
+
+    <meta name="apple-itunes-app" content="app-id=6757875996">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ChromaFit">
+    <meta property="og:url" content="https://chromafit.live/physique-lab.html">
+    <meta property="og:title" content="AI Physique Scoring — ChromaFit Physique Lab">
+    <meta property="og:description" content="Score your physique with AI. Get 1–10 scores for 8 muscle groups, proportion analysis, and a custom workout plan — all from one photo.">
+    <meta property="og:image" content="https://chromafit.live/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AI Physique Scoring — ChromaFit Physique Lab">
+    <meta name="twitter:description" content="Score your physique with AI. 8 muscle group scores, proportion analysis, and a custom workout plan from one photo.">
+    <meta name="twitter:image" content="https://chromafit.live/og-image.png">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "ChromaFit — Physique Lab",
+      "operatingSystem": "iOS",
+      "applicationCategory": "HealthApplication",
+      "description": "AI-powered physique scoring that rates 8 muscle groups, analyzes body proportions, and generates personalized workout plans from a single photo.",
+      "url": "https://chromafit.live/physique-lab.html",
+      "downloadUrl": "https://apps.apple.com/us/app/chromafit/id6757875996",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How does AI physique scoring work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ChromaFit's Physique Lab uses computer vision AI to analyze a photo of your physique. It scores 8 individual muscle groups on a scale of 1–10, analyzes your proportions, and identifies areas to prioritize in training. The AI then generates a custom 3–6 day workout split tailored to your specific physique."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which muscle groups does ChromaFit score?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ChromaFit scores 8 muscle groups: Shoulders, Chest, Arms, Back, Core, Quads, Hamstrings/Glutes, and Calves. Each group receives an individual score from 1–10 plus proportion analysis."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are my physique photos stored or shared?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Photos submitted to ChromaFit's Physique Lab are processed securely and are never stored on our servers or shared with third parties. Your privacy is fully protected."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What poses does the AI analyze?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ChromaFit can analyze front, back, and side physique photos. You can submit any standard bodybuilding or physique pose — the AI will identify your muscle groups regardless of angle."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --black: #0a0a0a;
+            --gray: #1a1a1a;
+            --gray-light: #999;
+            --white: #f5f5f5;
+            --gold: #C8A84E;
+            --gold-light: #E8C870;
+        }
+        body { background: var(--black); color: var(--white); font-family: 'Manrope', sans-serif; line-height: 1.6; }
+        .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+
+        /* Nav */
+        nav { padding: 20px 24px; display: flex; align-items: center; justify-content: space-between; max-width: 900px; margin: 0 auto; }
+        .nav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--white); font-family: 'Chakra Petch', sans-serif; font-weight: 700; font-size: 1.1rem; }
+        .nav-brand img { width: 32px; height: 32px; }
+        .nav-cta { background: linear-gradient(135deg, var(--gold-light), var(--gold)); color: #000; padding: 10px 22px; border-radius: 100px; text-decoration: none; font-weight: 800; font-size: .85rem; letter-spacing: .03em; }
+
+        /* Hero */
+        .hero { padding: 80px 0 60px; text-align: center; }
+        .label { display: inline-block; background: rgba(200,168,78,.15); color: var(--gold-light); border: 1px solid rgba(200,168,78,.3); padding: 6px 16px; border-radius: 100px; font-size: .75rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 1.5rem; }
+        h1 { font-family: 'Chakra Petch', sans-serif; font-size: clamp(2.4rem, 6vw, 4rem); font-weight: 700; line-height: 1.1; letter-spacing: -.02em; margin-bottom: 1.2rem; }
+        h1 span { background: linear-gradient(135deg, var(--gold-light), var(--gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .hero p { font-size: 1.1rem; color: var(--gray-light); max-width: 600px; margin: 0 auto 2.5rem; line-height: 1.7; }
+        .cta-btn { display: inline-block; }
+        .cta-btn img { width: 160px; height: auto; }
+
+        /* How it works */
+        .section { padding: 80px 0; }
+        .section-label { font-size: .75rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+        h2 { font-family: 'Chakra Petch', sans-serif; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 700; margin-bottom: 1rem; letter-spacing: -.02em; }
+        .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; margin-top: 3rem; }
+        .step { background: #1a1a1a; border-radius: 16px; padding: 32px 28px; border: 1px solid rgba(255,255,255,.06); }
+        .step-num { font-family: 'Chakra Petch', sans-serif; font-size: 2.5rem; font-weight: 700; color: rgba(200,168,78,.3); line-height: 1; margin-bottom: 1rem; }
+        .step h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: .5rem; }
+        .step p { color: var(--gray-light); font-size: .95rem; }
+
+        /* Muscle groups */
+        .muscles { padding: 60px 0; text-align: center; }
+        .chip-grid { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 2rem; }
+        .chip { background: rgba(200,168,78,.1); border: 1px solid rgba(200,168,78,.25); color: var(--gold-light); padding: 8px 18px; border-radius: 100px; font-size: .9rem; font-weight: 600; }
+
+        /* Screenshots */
+        .screenshots { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 3rem; }
+        .screenshots img { width: 100%; border-radius: 20px; border: 1px solid rgba(255,255,255,.08); }
+
+        /* Privacy note */
+        .privacy-note { text-align: center; color: var(--gray-light); font-size: .85rem; margin-top: 1.5rem; }
+
+        /* FAQ */
+        .faq { padding: 80px 0; }
+        .faq-item { border-bottom: 1px solid rgba(255,255,255,.07); padding: 24px 0; }
+        .faq-item h3 { font-size: 1rem; font-weight: 700; margin-bottom: .6rem; }
+        .faq-item p { color: var(--gray-light); font-size: .95rem; }
+
+        /* Footer */
+        footer { padding: 40px 24px; text-align: center; border-top: 1px solid rgba(255,255,255,.06); color: var(--gray-light); font-size: .85rem; }
+        footer a { color: var(--gray-light); text-decoration: none; margin: 0 12px; }
+        footer a:hover { color: var(--white); }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="/" class="nav-brand">
+            <img src="/transparenticon.png" alt="ChromaFit" width="1024" height="1024">
+            ChromaFit
+        </a>
+        <a href="https://apps.apple.com/us/app/chromafit/id6757875996" target="_blank" rel="noopener" class="nav-cta">Download Free</a>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <div class="label">✦ Physique Lab</div>
+            <h1>AI Physique Scoring<br>for <span>Every Muscle Group</span></h1>
+            <p>Take a photo. Get AI-scored ratings for 8 muscle groups, proportion analysis, and a personalized workout plan built around your actual physique.</p>
+            <a href="https://apps.apple.com/us/app/chromafit/id6757875996" target="_blank" rel="noopener" class="cta-btn">
+                <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store" width="250" height="83">
+            </a>
+            <p class="privacy-note">🔒 Photos are processed securely and never stored or shared.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-label">How It Works</div>
+            <h2>Three Steps to Your Physique Score</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-num">01</div>
+                    <h3>Snap a Photo</h3>
+                    <p>Upload your physique photo. Front, back, or side — the AI analyzes any standard pose.</p>
+                </div>
+                <div class="step">
+                    <div class="step-num">02</div>
+                    <h3>Get AI Scores</h3>
+                    <p>Receive detailed 1–10 scores for 8 muscle groups plus a full proportion analysis.</p>
+                </div>
+                <div class="step">
+                    <div class="step-num">03</div>
+                    <h3>Custom Workouts</h3>
+                    <p>Get a personalized 3–6 day split with exercises, sets, reps, tempo, and rest times.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="muscles">
+        <div class="container">
+            <div class="section-label">Scored Muscle Groups</div>
+            <h2>8 Scores. One Complete Picture.</h2>
+            <p style="color: var(--gray-light); margin-top: .5rem;">Every scan rates each muscle group independently so you know exactly where to focus.</p>
+            <div class="chip-grid">
+                <div class="chip">Shoulders</div>
+                <div class="chip">Chest</div>
+                <div class="chip">Arms</div>
+                <div class="chip">Back</div>
+                <div class="chip">Core</div>
+                <div class="chip">Quads</div>
+                <div class="chip">Hamstrings / Glutes</div>
+                <div class="chip">Calves</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-label">See It In Action</div>
+            <h2>What You Get After Every Scan</h2>
+            <div class="screenshots">
+                <img src="/9.png" alt="Scan your physique with AI" width="1179" height="2556" loading="lazy">
+                <img src="/5.png" alt="AI physique scores for each muscle group" width="1179" height="2556" loading="lazy">
+                <img src="/8.png" alt="Custom workout plan based on your physique" width="1179" height="2556" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <section class="faq">
+        <div class="container">
+            <div class="section-label">FAQ</div>
+            <h2>Common Questions</h2>
+            <div class="faq-item">
+                <h3>How does AI physique scoring work?</h3>
+                <p>ChromaFit's Physique Lab uses computer vision AI to analyze a photo of your physique. It scores 8 individual muscle groups on a scale of 1–10, analyzes your proportions, and identifies areas to prioritize in training.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Which muscle groups does ChromaFit score?</h3>
+                <p>Shoulders, Chest, Arms, Back, Core, Quads, Hamstrings/Glutes, and Calves — each rated independently with proportion analysis.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Are my physique photos stored or shared?</h3>
+                <p>No. Photos are processed securely and never stored on our servers or shared with third parties.</p>
+            </div>
+            <div class="faq-item">
+                <h3>What poses does the AI analyze?</h3>
+                <p>Front, back, and side poses. Any standard bodybuilding or physique pose will work — the AI identifies your muscle groups regardless of angle.</p>
+            </div>
+            <div class="faq-item">
+                <h3>How many scans do I get?</h3>
+                <p>Free users get 3 physique scans per month. Pro users get 50 scans per month with priority AI processing.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <a href="/">Home</a>
+        <a href="/food-scanner.html">Food Scanner</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/support.html">Support</a>
+        <br><br>
+        &copy; 2026 ChromaFit. All rights reserved.
+    </footer>
+
+</body>
+</html>

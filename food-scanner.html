@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Food Scanner — Instant Calorie & Macro Tracking | ChromaFit</title>
+    <meta name="description" content="Point your camera at any meal and get instant calorie and macro breakdowns. ChromaFit's AI food scanner — no manual entry, no barcode needed. Free on iOS.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://chromafit.live/food-scanner.html">
+    <link rel="icon" type="image/png" href="/transparenticon.png">
+    <link rel="apple-touch-icon" href="/transparenticon.png">
+
+    <meta name="apple-itunes-app" content="app-id=6757875996">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ChromaFit">
+    <meta property="og:url" content="https://chromafit.live/food-scanner.html">
+    <meta property="og:title" content="AI Food Scanner — Instant Calorie & Macro Tracking | ChromaFit">
+    <meta property="og:description" content="Point your camera at any meal and get instant calorie and macro breakdowns. No manual entry. No barcode needed.">
+    <meta property="og:image" content="https://chromafit.live/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AI Food Scanner — Instant Calorie & Macro Tracking | ChromaFit">
+    <meta name="twitter:description" content="Point your camera at any meal and get instant calorie and macro breakdowns. No manual entry. Free on iOS.">
+    <meta name="twitter:image" content="https://chromafit.live/og-image.png">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "ChromaFit — AI Food Scanner",
+      "operatingSystem": "iOS",
+      "applicationCategory": "HealthApplication",
+      "description": "AI-powered food scanner that identifies any meal from a photo and provides instant calorie counts, macros (protein, carbs, fat), and full nutritional breakdowns.",
+      "url": "https://chromafit.live/food-scanner.html",
+      "downloadUrl": "https://apps.apple.com/us/app/chromafit/id6757875996",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How does the AI food scanner work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ChromaFit's AI food scanner uses your iPhone camera to photograph any meal. The AI identifies the foods in the photo and returns an instant breakdown of calories, protein, carbohydrates, and fat — no manual entry or barcode scanning required."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does the food scanner work on restaurant meals?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. The AI can identify and estimate macros for restaurant meals, home-cooked food, snacks, and packaged items — even without a barcode."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How many food scans do I get?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Free users get 1 food scan per month. Pro users get unlimited food scans with full macro breakdowns including fiber, sugar, and micronutrients."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is ChromaFit's food scanner more accurate than manual logging?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "AI food scanning is faster than manual logging and eliminates common entry errors. For best accuracy, take photos in good lighting with the full meal visible in frame."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --black: #0a0a0a;
+            --gray: #1a1a1a;
+            --gray-light: #999;
+            --white: #f5f5f5;
+            --green: #35A052;
+            --green-light: #4DC46A;
+        }
+        body { background: var(--black); color: var(--white); font-family: 'Manrope', sans-serif; line-height: 1.6; }
+        .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+
+        nav { padding: 20px 24px; display: flex; align-items: center; justify-content: space-between; max-width: 900px; margin: 0 auto; }
+        .nav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--white); font-family: 'Chakra Petch', sans-serif; font-weight: 700; font-size: 1.1rem; }
+        .nav-brand img { width: 32px; height: 32px; }
+        .nav-cta { background: linear-gradient(135deg, var(--green-light), var(--green)); color: #fff; padding: 10px 22px; border-radius: 100px; text-decoration: none; font-weight: 800; font-size: .85rem; letter-spacing: .03em; }
+
+        .hero { padding: 80px 0 60px; text-align: center; }
+        .label { display: inline-block; background: rgba(53,160,82,.15); color: var(--green-light); border: 1px solid rgba(53,160,82,.3); padding: 6px 16px; border-radius: 100px; font-size: .75rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 1.5rem; }
+        h1 { font-family: 'Chakra Petch', sans-serif; font-size: clamp(2.4rem, 6vw, 4rem); font-weight: 700; line-height: 1.1; letter-spacing: -.02em; margin-bottom: 1.2rem; }
+        h1 span { background: linear-gradient(135deg, var(--green-light), var(--green)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .hero p { font-size: 1.1rem; color: var(--gray-light); max-width: 580px; margin: 0 auto 2.5rem; line-height: 1.7; }
+        .cta-btn img { width: 160px; height: auto; }
+
+        .section { padding: 80px 0; }
+        .section-label { font-size: .75rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--green); margin-bottom: 1rem; }
+        h2 { font-family: 'Chakra Petch', sans-serif; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 700; margin-bottom: 1rem; letter-spacing: -.02em; }
+
+        .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; margin-top: 3rem; }
+        .step { background: #1a1a1a; border-radius: 16px; padding: 32px 28px; border: 1px solid rgba(255,255,255,.06); }
+        .step-num { font-family: 'Chakra Petch', sans-serif; font-size: 2.5rem; font-weight: 700; color: rgba(53,160,82,.4); line-height: 1; margin-bottom: 1rem; }
+        .step h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: .5rem; }
+        .step p { color: var(--gray-light); font-size: .95rem; }
+
+        .macros { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px; margin-top: 2.5rem; }
+        .macro-card { background: #1a1a1a; border-radius: 14px; padding: 24px; text-align: center; border: 1px solid rgba(255,255,255,.06); }
+        .macro-card .icon { font-size: 1.8rem; margin-bottom: .6rem; }
+        .macro-card h3 { font-size: .95rem; font-weight: 700; margin-bottom: .3rem; }
+        .macro-card p { color: var(--gray-light); font-size: .85rem; }
+
+        .phone-showcase { text-align: center; margin-top: 3rem; }
+        .phone-showcase img { max-width: 280px; width: 100%; border-radius: 28px; border: 1px solid rgba(255,255,255,.08); }
+
+        .faq { padding: 80px 0; }
+        .faq-item { border-bottom: 1px solid rgba(255,255,255,.07); padding: 24px 0; }
+        .faq-item h3 { font-size: 1rem; font-weight: 700; margin-bottom: .6rem; }
+        .faq-item p { color: var(--gray-light); font-size: .95rem; }
+
+        footer { padding: 40px 24px; text-align: center; border-top: 1px solid rgba(255,255,255,.06); color: var(--gray-light); font-size: .85rem; }
+        footer a { color: var(--gray-light); text-decoration: none; margin: 0 12px; }
+        footer a:hover { color: var(--white); }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="/" class="nav-brand">
+            <img src="/transparenticon.png" alt="ChromaFit" width="1024" height="1024">
+            ChromaFit
+        </a>
+        <a href="https://apps.apple.com/us/app/chromafit/id6757875996" target="_blank" rel="noopener" class="nav-cta">Download Free</a>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <div class="label">AI Food Scanner</div>
+            <h1>Scan Any Meal.<br><span>Know Your Macros.</span></h1>
+            <p>Point your camera at any meal and get an instant breakdown of calories, protein, carbs, and fat. No manual entry. No barcode. No guessing.</p>
+            <a href="https://apps.apple.com/us/app/chromafit/id6757875996" target="_blank" rel="noopener" class="cta-btn">
+                <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store" width="250" height="83">
+            </a>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-label">How It Works</div>
+            <h2>Calorie Tracking in Seconds</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-num">01</div>
+                    <h3>Point Your Camera</h3>
+                    <p>Open the food scanner in ChromaFit and point your iPhone camera at any meal — restaurant, home-cooked, or packaged.</p>
+                </div>
+                <div class="step">
+                    <div class="step-num">02</div>
+                    <h3>AI Identifies the Food</h3>
+                    <p>The AI instantly recognizes the food items in the photo, even mixed dishes and meals without barcodes.</p>
+                </div>
+                <div class="step">
+                    <div class="step-num">03</div>
+                    <h3>Get Your Macros</h3>
+                    <p>See calories, protein, carbs, and fat instantly. Pro users get the full nutritional breakdown including fiber and micronutrients.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="padding-top: 0;">
+        <div class="container">
+            <div class="section-label">What's Tracked</div>
+            <h2>Full Nutritional Breakdown</h2>
+            <div class="macros">
+                <div class="macro-card">
+                    <div class="icon">🔥</div>
+                    <h3>Calories</h3>
+                    <p>Total energy per meal and daily running total</p>
+                </div>
+                <div class="macro-card">
+                    <div class="icon">🥩</div>
+                    <h3>Protein</h3>
+                    <p>Grams of protein to hit your daily target</p>
+                </div>
+                <div class="macro-card">
+                    <div class="icon">🍞</div>
+                    <h3>Carbs</h3>
+                    <p>Total carbohydrates and net carbs</p>
+                </div>
+                <div class="macro-card">
+                    <div class="icon">🥑</div>
+                    <h3>Fat</h3>
+                    <p>Total fat including saturated and unsaturated</p>
+                </div>
+            </div>
+            <div class="phone-showcase">
+                <img src="/6.png" alt="AI Food Scanner showing meal macro breakdown" width="1179" height="2556" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <section class="faq">
+        <div class="container">
+            <div class="section-label">FAQ</div>
+            <h2>Common Questions</h2>
+            <div class="faq-item">
+                <h3>How does the AI food scanner work?</h3>
+                <p>ChromaFit uses your iPhone camera to photograph any meal. The AI identifies the foods and returns an instant breakdown of calories, protein, carbohydrates, and fat — no manual entry or barcode required.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Does it work on restaurant meals?</h3>
+                <p>Yes. The AI can identify and estimate macros for restaurant meals, home-cooked food, snacks, and packaged items — even without a barcode.</p>
+            </div>
+            <div class="faq-item">
+                <h3>How many food scans do I get?</h3>
+                <p>Free users get 1 food scan per month. Pro users get unlimited food scans with full macro breakdowns.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Does it sync with Apple Health?</h3>
+                <p>Yes. ChromaFit syncs calorie and nutrition data with Apple HealthKit automatically.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <a href="/">Home</a>
+        <a href="/physique-lab.html">Physique Lab</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/support.html">Support</a>
+        <br><br>
+        &copy; 2026 ChromaFit. All rights reserved.
+    </footer>
+
+</body>
+</html>
