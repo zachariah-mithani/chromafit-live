@@ -29,7 +29,6 @@
       --blue:   #4384ec;
       --yellow: #f3ba0b;
       --bg:     #0d0d0f;
-      --surface: rgba(255,255,255,0.04);
       --border:  rgba(255,255,255,0.08);
       --text:    #f0f0f2;
       --muted:   rgba(240,240,242,0.5);
@@ -84,29 +83,29 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 28px 24px 100px;
+      padding: 40px 28px;
       max-width: 420px;
       margin: 0 auto;
+      gap: 32px;
     }
 
     /* ── Logo lockup ── */
     .logo-row {
       display: flex;
       align-items: center;
-      gap: 10px;
-      margin-bottom: 28px;
+      gap: 14px;
       animation: fadeUp .5s ease both;
     }
 
     .logo-row img {
-      width: 64px;
-      height: 64px;
-      border-radius: 14px;
+      width: 72px;
+      height: 72px;
+      border-radius: 16px;
     }
 
     .logo-row span {
       font-family: 'Chakra Petch', sans-serif;
-      font-size: 1.6rem;
+      font-size: 2rem;
       font-weight: 700;
       letter-spacing: .02em;
       color: var(--text);
@@ -115,12 +114,11 @@
     /* ── Headline ── */
     h1 {
       font-family: 'Chakra Petch', sans-serif;
-      font-size: clamp(2.4rem, 10vw, 3rem);
+      font-size: clamp(2.8rem, 12vw, 3.6rem);
       font-weight: 700;
-      line-height: 1.08;
+      line-height: 1.06;
       letter-spacing: -.02em;
       text-align: center;
-      margin-bottom: 16px;
       animation: fadeUp .5s .1s ease both;
     }
 
@@ -134,42 +132,40 @@
 
     /* ── Subhead ── */
     .sub {
-      font-size: .95rem;
+      font-size: 1.1rem;
       font-weight: 500;
       color: var(--muted);
       text-align: center;
-      line-height: 1.55;
-      margin-bottom: 24px;
+      line-height: 1.6;
       animation: fadeUp .5s .18s ease both;
     }
 
     /* ── Feature pills ── */
     .pills {
       display: flex;
-      gap: 8px;
+      gap: 10px;
       flex-wrap: wrap;
       justify-content: center;
-      margin-bottom: 32px;
       animation: fadeUp .5s .26s ease both;
     }
 
     .pill {
       display: flex;
       align-items: center;
-      gap: 6px;
-      font-size: .72rem;
+      gap: 7px;
+      font-size: .8rem;
       font-weight: 600;
       letter-spacing: .04em;
       text-transform: uppercase;
-      padding: 6px 13px;
+      padding: 8px 16px;
       border-radius: 100px;
       border: 1px solid;
       white-space: nowrap;
     }
 
     .pill-dot {
-      width: 6px;
-      height: 6px;
+      width: 7px;
+      height: 7px;
       border-radius: 50%;
     }
 
@@ -181,125 +177,43 @@
     .pill.green .pill-dot { background: var(--green); }
     .pill.blue  .pill-dot { background: var(--blue); }
 
-    /* ── Primary CTA ── */
-    .cta-wrap {
+    /* ── App Store badge ── */
+    .badge-wrap {
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 14px;
-      width: 100%;
       animation: fadeUp .5s .34s ease both;
     }
 
-    .btn-primary {
-      display: block;
-      width: 100%;
-      max-width: 320px;
-      padding: 17px 24px;
-      background: var(--text);
-      color: var(--bg);
-      font-family: 'Chakra Petch', sans-serif;
-      font-size: 1.05rem;
-      font-weight: 700;
-      letter-spacing: .02em;
-      text-align: center;
-      text-decoration: none;
-      border-radius: 14px;
-      border: none;
-      cursor: pointer;
-      transition: transform .15s ease, box-shadow .15s ease;
-      box-shadow: 0 0 0 0 rgba(229,66,49,0);
-      position: relative;
-      overflow: hidden;
+    .app-badge {
+      height: 64px;
+      width: auto;
+      transition: transform .15s ease, opacity .15s ease;
+      filter: brightness(1.05);
     }
 
-    .btn-primary::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(229,66,49,.15), rgba(243,186,11,.1));
-      border-radius: inherit;
+    .app-badge:hover {
+      transform: scale(1.04);
+      opacity: .9;
     }
 
-    .btn-primary:active {
+    .app-badge:active {
       transform: scale(.97);
     }
 
-    .btn-primary:hover {
-      box-shadow: 0 8px 32px rgba(229,66,49,.35);
-      transform: translateY(-1px);
-    }
-
-    .app-badge {
-      height: 38px;
-      width: auto;
-      opacity: .7;
-      transition: opacity .2s;
-    }
-
-    .app-badge:hover { opacity: 1; }
-
     /* ── Stars ── */
     .stars {
-      font-size: .8rem;
+      font-size: .9rem;
+      font-weight: 500;
       color: var(--muted);
       letter-spacing: .02em;
       animation: fadeUp .5s .42s ease both;
-      margin-top: 4px;
     }
 
     .stars span {
       color: var(--yellow);
-      letter-spacing: .05em;
-    }
-
-    /* ── Sticky bottom bar ── */
-    .sticky-bar {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
-      padding: 12px 20px max(16px, env(safe-area-inset-bottom));
-      background: rgba(13,13,15,.85);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-top: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      animation: slideUp .4s .6s ease both;
-    }
-
-    .sticky-bar a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      width: 100%;
-      max-width: 380px;
-      padding: 14px 24px;
-      background: linear-gradient(90deg, var(--red), #f05a2a);
-      color: #fff;
-      font-family: 'Chakra Petch', sans-serif;
-      font-size: 1rem;
-      font-weight: 700;
-      letter-spacing: .04em;
-      text-decoration: none;
-      border-radius: 12px;
-      transition: transform .15s, box-shadow .15s;
-      box-shadow: 0 4px 24px rgba(229,66,49,.4);
-    }
-
-    .sticky-bar a:active { transform: scale(.97); }
-
-    .arrow {
-      display: inline-block;
-      transition: transform .2s;
-    }
-
-    .sticky-bar a:hover .arrow {
-      transform: translateX(4px);
+      letter-spacing: .06em;
     }
 
     /* ── Animations ── */
@@ -307,25 +221,6 @@
       from { opacity: 0; transform: translateY(18px); }
       to   { opacity: 1; transform: translateY(0); }
     }
-
-    @keyframes slideUp {
-      from { transform: translateY(100%); }
-      to   { transform: translateY(0); }
-    }
-
-    /* ── Pulsing glow behind CTA ── */
-    .btn-primary::before {
-      content: '';
-      position: absolute;
-      inset: -2px;
-      border-radius: 16px;
-      background: linear-gradient(90deg, var(--red), var(--yellow), var(--green), var(--blue));
-      z-index: -1;
-      opacity: 0;
-      transition: opacity .3s;
-    }
-
-    .btn-primary:hover::before { opacity: .6; }
   </style>
 </head>
 <body>
@@ -334,7 +229,7 @@
 
   <!-- Logo -->
   <div class="logo-row">
-    <img src="/transparenticon.png" alt="ChromaFit icon" width="64" height="64">
+    <img src="/transparenticon.png" alt="ChromaFit icon" width="72" height="72">
     <span>ChromaFit</span>
   </div>
 
@@ -346,61 +241,31 @@
 
   <!-- Feature pills -->
   <div class="pills">
-    <div class="pill red">
-      <span class="pill-dot"></span>AI Physique Score
-    </div>
-    <div class="pill green">
-      <span class="pill-dot"></span>Food Scanner
-    </div>
-    <div class="pill blue">
-      <span class="pill-dot"></span>Full-Body Tracking
-    </div>
+    <div class="pill red"><span class="pill-dot"></span>AI Physique Score</div>
+    <div class="pill green"><span class="pill-dot"></span>Food Scanner</div>
+    <div class="pill blue"><span class="pill-dot"></span>Full-Body Tracking</div>
   </div>
 
-  <!-- CTA -->
-  <div class="cta-wrap">
-    <a
-      class="btn-primary"
-      href="https://apps.apple.com/us/app/chromafit/id6757875996?utm_source=tiktok&utm_medium=social&utm_campaign=organic"
-      target="_blank"
-      rel="noopener"
-      onclick="gtag('event','tiktok_cta_click',{event_category:'conversion',event_label:'hero_button'})"
-    >
-      Download Free on iOS
-    </a>
-
+  <!-- App Store badge + stars -->
+  <div class="badge-wrap">
     <a
       href="https://apps.apple.com/us/app/chromafit/id6757875996?utm_source=tiktok&utm_medium=social&utm_campaign=organic"
       target="_blank"
       rel="noopener"
-      onclick="gtag('event','tiktok_cta_click',{event_category:'conversion',event_label:'hero_badge'})"
+      onclick="gtag('event','tiktok_cta_click',{event_category:'conversion',event_label:'badge'})"
     >
       <img
         class="app-badge"
         src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83"
         alt="Download on the App Store"
-        width="125"
-        height="42"
+        width="192"
+        height="64"
       >
     </a>
+    <p class="stars"><span>★★★★★</span>&nbsp;&nbsp;Free on iOS</p>
   </div>
 
-  <!-- Social proof -->
-  <p class="stars"><span>★★★★★</span>&nbsp;&nbsp;Free on iOS</p>
-
 </main>
-
-<!-- Sticky bottom bar -->
-<div class="sticky-bar">
-  <a
-    href="https://apps.apple.com/us/app/chromafit/id6757875996?utm_source=tiktok&utm_medium=social&utm_campaign=organic"
-    target="_blank"
-    rel="noopener"
-    onclick="gtag('event','tiktok_cta_click',{event_category:'conversion',event_label:'sticky_bar'})"
-  >
-    Download Free <span class="arrow">→</span>
-  </a>
-</div>
 
 </body>
 </html>
