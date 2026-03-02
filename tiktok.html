@@ -83,11 +83,18 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: flex-start;
-      padding: 16px 24px 40px;
+      justify-content: center;
+      padding: 24px 24px 40px;
       max-width: 400px;
       margin: 0 auto;
-      gap: 24px;
+      gap: 20px;
+    }
+
+    .hero-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
     }
 
     /* ── Logo ── */
@@ -96,7 +103,6 @@
       align-items: center;
       gap: 14px;
       animation: fadeUp .45s ease both;
-      margin-bottom: -14px;
     }
 
     .logo-row img {
@@ -284,14 +290,16 @@
 
 <main class="page">
 
-  <!-- Logo -->
-  <div class="logo-row">
-    <img src="/transparenticon.png" alt="ChromaFit" width="100" height="100">
-    <span>ChromaFit</span>
-  </div>
+  <div class="hero-group">
+    <!-- Logo -->
+    <div class="logo-row">
+      <img src="/transparenticon.png" alt="ChromaFit" width="100" height="100">
+      <span>ChromaFit</span>
+    </div>
 
-  <!-- Headline -->
-  <h1>What's your<br><span class="accent">physique score?</span></h1>
+    <!-- Headline -->
+    <h1>What's your<br><span class="accent">physique score?</span></h1>
+  </div>
 
   <!-- Subhead -->
   <p class="sub">AI scores every muscle group from a photo.<br>Takes 10 seconds. Free on iOS.</p>
