@@ -18,7 +18,7 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600;700&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -26,12 +26,14 @@
     :root {
       --red:    #e54231;
       --green:  #35a052;
+      --neon:   #3effa0;
       --blue:   #4384ec;
       --yellow: #f3ba0b;
       --bg:     #0d0d0f;
-      --border:  rgba(255,255,255,0.08);
-      --text:    #f0f0f2;
-      --muted:   rgba(240,240,242,0.5);
+      --card:   #181a1b;
+      --border: rgba(255,255,255,0.07);
+      --text:   #f0f0f2;
+      --muted:  rgba(240,240,242,0.45);
     }
 
     html, body {
@@ -43,26 +45,25 @@
       overflow-x: hidden;
     }
 
-    /* ── Animated mesh background ── */
+    /* ── Mesh background ── */
     body::before {
       content: '';
       position: fixed;
       inset: 0;
       background:
-        radial-gradient(ellipse 60% 40% at 15% 20%, rgba(229,66,49,.18) 0%, transparent 70%),
-        radial-gradient(ellipse 50% 35% at 85% 75%, rgba(67,132,236,.16) 0%, transparent 70%),
-        radial-gradient(ellipse 40% 30% at 50% 50%, rgba(53,160,82,.10) 0%, transparent 70%);
-      animation: meshShift 8s ease-in-out infinite alternate;
+        radial-gradient(ellipse 55% 40% at 10% 15%, rgba(229,66,49,.16) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 40% at 90% 80%, rgba(67,132,236,.14) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 35% at 55% 45%, rgba(62,255,160,.07) 0%, transparent 70%);
+      animation: meshShift 9s ease-in-out infinite alternate;
       pointer-events: none;
       z-index: 0;
     }
 
     @keyframes meshShift {
-      0%   { opacity: 1; transform: scale(1) translate(0, 0); }
-      100% { opacity: .85; transform: scale(1.06) translate(-2%, 2%); }
+      0%   { transform: scale(1) translate(0,0); }
+      100% { transform: scale(1.07) translate(-2%,2%); }
     }
 
-    /* ── Noise grain overlay ── */
     body::after {
       content: '';
       position: fixed;
@@ -71,10 +72,10 @@
       background-size: 180px;
       pointer-events: none;
       z-index: 0;
-      opacity: .6;
+      opacity: .5;
     }
 
-    /* ── Layout ── */
+    /* ── Page layout ── */
     .page {
       position: relative;
       z-index: 1;
@@ -83,18 +84,18 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 40px 28px;
-      max-width: 420px;
+      padding: 36px 24px 40px;
+      max-width: 400px;
       margin: 0 auto;
-      gap: 32px;
+      gap: 24px;
     }
 
-    /* ── Logo lockup ── */
+    /* ── Logo ── */
     .logo-row {
       display: flex;
       align-items: center;
       gap: 14px;
-      animation: fadeUp .5s ease both;
+      animation: fadeUp .45s ease both;
     }
 
     .logo-row img {
@@ -108,21 +109,20 @@
       font-size: 2.6rem;
       font-weight: 700;
       letter-spacing: .02em;
-      color: var(--text);
     }
 
     /* ── Headline ── */
     h1 {
       font-family: 'Chakra Petch', sans-serif;
-      font-size: clamp(2.8rem, 12vw, 3.6rem);
+      font-size: clamp(2.6rem, 11vw, 3.4rem);
       font-weight: 700;
       line-height: 1.06;
       letter-spacing: -.02em;
       text-align: center;
-      animation: fadeUp .5s .1s ease both;
+      animation: fadeUp .45s .08s ease both;
     }
 
-    h1 .line2 {
+    h1 .accent {
       display: block;
       background: linear-gradient(90deg, var(--red), var(--yellow));
       -webkit-background-clip: text;
@@ -132,93 +132,145 @@
 
     /* ── Subhead ── */
     .sub {
-      font-size: 1.1rem;
+      font-size: 1rem;
       font-weight: 500;
       color: var(--muted);
       text-align: center;
       line-height: 1.6;
-      animation: fadeUp .5s .18s ease both;
+      animation: fadeUp .45s .14s ease both;
     }
 
-    /* ── Feature pills ── */
-    .pills {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      justify-content: center;
-      animation: fadeUp .5s .26s ease both;
+    /* ── Score card mock ── */
+    .score-card {
+      width: 100%;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 20px 20px 16px;
+      animation: fadeUp .45s .2s ease both;
+      box-shadow: 0 8px 40px rgba(0,0,0,.5), 0 0 0 1px rgba(62,255,160,.06);
     }
 
-    .pill {
+    .card-header {
       display: flex;
       align-items: center;
-      gap: 7px;
-      font-size: .8rem;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .card-header svg {
+      color: var(--neon);
+      flex-shrink: 0;
+    }
+
+    .card-header span {
+      font-family: 'Chakra Petch', sans-serif;
+      font-size: .72rem;
       font-weight: 600;
-      letter-spacing: .04em;
+      letter-spacing: .12em;
       text-transform: uppercase;
-      padding: 8px 16px;
+      color: var(--muted);
+    }
+
+    .score-rows {
+      display: flex;
+      flex-direction: column;
+      gap: 13px;
+    }
+
+    .score-row {
+      display: grid;
+      grid-template-columns: 100px 1fr 28px;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .muscle-label {
+      font-family: 'Chakra Petch', sans-serif;
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .bar-track {
+      height: 12px;
+      background: rgba(255,255,255,.06);
       border-radius: 100px;
-      border: 1px solid;
-      white-space: nowrap;
+      overflow: hidden;
     }
 
-    .pill-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
+    .bar-fill {
+      height: 100%;
+      border-radius: 100px;
+      background: var(--neon);
+      box-shadow: 0 0 10px rgba(62,255,160,.5);
+      transform-origin: left;
+      animation: barGrow .8s cubic-bezier(.22,1,.36,1) both;
     }
 
-    .pill.red   { color: var(--red);   border-color: rgba(229,66,49,.35);   background: rgba(229,66,49,.08); }
-    .pill.green { color: var(--green); border-color: rgba(53,160,82,.35);   background: rgba(53,160,82,.08); }
-    .pill.blue  { color: var(--blue);  border-color: rgba(67,132,236,.35);  background: rgba(67,132,236,.08); }
+    .bar-fill.d1 { animation-delay: .35s; }
+    .bar-fill.d2 { animation-delay: .45s; }
+    .bar-fill.d3 { animation-delay: .55s; }
+    .bar-fill.d4 { animation-delay: .65s; }
 
-    .pill.red   .pill-dot { background: var(--red); }
-    .pill.green .pill-dot { background: var(--green); }
-    .pill.blue  .pill-dot { background: var(--blue); }
+    @keyframes barGrow {
+      from { transform: scaleX(0); }
+      to   { transform: scaleX(1); }
+    }
+
+    .score-num {
+      font-family: 'Chakra Petch', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text);
+      text-align: right;
+    }
+
+    .card-footer {
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      color: var(--muted);
+      font-size: .75rem;
+      line-height: 1.5;
+    }
+
+    .card-footer svg { flex-shrink: 0; margin-top: 1px; }
 
     /* ── App Store badge ── */
     .badge-wrap {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 14px;
-      animation: fadeUp .5s .34s ease both;
+      gap: 10px;
+      animation: fadeUp .45s .28s ease both;
     }
 
     .app-badge {
-      height: 64px;
+      height: 60px;
       width: auto;
       transition: transform .15s ease, opacity .15s ease;
-      filter: brightness(1.05);
     }
 
-    .app-badge:hover {
-      transform: scale(1.04);
-      opacity: .9;
-    }
+    .app-badge:hover { transform: scale(1.04); }
+    .app-badge:active { transform: scale(.97); }
 
-    .app-badge:active {
-      transform: scale(.97);
-    }
-
-    /* ── Stars ── */
     .stars {
-      font-size: .9rem;
+      font-size: .85rem;
       font-weight: 500;
       color: var(--muted);
-      letter-spacing: .02em;
-      animation: fadeUp .5s .42s ease both;
     }
 
-    .stars span {
-      color: var(--yellow);
-      letter-spacing: .06em;
-    }
+    .stars span { color: var(--yellow); }
 
     /* ── Animations ── */
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(18px); }
+      from { opacity: 0; transform: translateY(16px); }
       to   { opacity: 1; transform: translateY(0); }
     }
   </style>
@@ -229,24 +281,61 @@
 
   <!-- Logo -->
   <div class="logo-row">
-    <img src="/transparenticon.png" alt="ChromaFit icon" width="100" height="100">
+    <img src="/transparenticon.png" alt="ChromaFit" width="100" height="100">
     <span>ChromaFit</span>
   </div>
 
   <!-- Headline -->
-  <h1>Your Physique.<br><span class="line2">Scored by AI.</span></h1>
+  <h1>What's your<br><span class="accent">physique score?</span></h1>
 
   <!-- Subhead -->
-  <p class="sub">Scan your body. Track your food.<br>Watch yourself transform.</p>
+  <p class="sub">AI scores every muscle group from a photo.<br>Takes 10 seconds. Free on iOS.</p>
 
-  <!-- Feature pills -->
-  <div class="pills">
-    <div class="pill red"><span class="pill-dot"></span>AI Physique Score</div>
-    <div class="pill green"><span class="pill-dot"></span>Food Scanner</div>
-    <div class="pill blue"><span class="pill-dot"></span>Full-Body Tracking</div>
+  <!-- Score card mock -->
+  <div class="score-card">
+    <div class="card-header">
+      <!-- sparkle icon -->
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 2l1.5 4.5L18 8l-4.5 1.5L12 14l-1.5-4.5L6 8l4.5-1.5L12 2z"/>
+        <path d="M5 16l.75 2.25L8 19l-2.25.75L5 22l-.75-2.25L2 19l2.25-.75L5 16z"/>
+      </svg>
+      <span>AI Analysis</span>
+    </div>
+
+    <div class="score-rows">
+      <div class="score-row">
+        <span class="muscle-label">Shoulders</span>
+        <div class="bar-track"><div class="bar-fill d1" style="width:90%"></div></div>
+        <span class="score-num">9</span>
+      </div>
+      <div class="score-row">
+        <span class="muscle-label">Chest</span>
+        <div class="bar-track"><div class="bar-fill d2" style="width:80%"></div></div>
+        <span class="score-num">8</span>
+      </div>
+      <div class="score-row">
+        <span class="muscle-label">Arms</span>
+        <div class="bar-track"><div class="bar-fill d3" style="width:90%"></div></div>
+        <span class="score-num">9</span>
+      </div>
+      <div class="score-row">
+        <span class="muscle-label">Core</span>
+        <div class="bar-track"><div class="bar-fill d4" style="width:90%"></div></div>
+        <span class="score-num">9</span>
+      </div>
+    </div>
+
+    <div class="card-footer">
+      <!-- camera icon -->
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+        <circle cx="12" cy="13" r="4"/>
+      </svg>
+      4 groups not visible — add more angles for full assessment
+    </div>
   </div>
 
-  <!-- App Store badge + stars -->
+  <!-- App Store -->
   <div class="badge-wrap">
     <a
       href="https://apps.apple.com/us/app/chromafit/id6757875996?utm_source=tiktok&utm_medium=social&utm_campaign=organic"
@@ -258,11 +347,11 @@
         class="app-badge"
         src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83"
         alt="Download on the App Store"
-        width="192"
-        height="64"
+        width="180"
+        height="60"
       >
     </a>
-    <p class="stars"><span>★★★★★</span>&nbsp;&nbsp;Free on iOS</p>
+    <p class="stars"><span>★★★★★</span>&nbsp; Free on iOS</p>
   </div>
 
 </main>
