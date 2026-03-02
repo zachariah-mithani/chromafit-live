@@ -1,3 +1,7 @@
+# TikTok short links
+/tt                                    /tiktok                            302
+/tiktok.html                           /tiktok                            301
+
 # Redirect .html URLs to extensionless (canonical)
 /best-calorie-tracking-apps-2026.html  /best-calorie-tracking-apps-2026  301
 /blog.html                             /blog                              301
