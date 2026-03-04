@@ -123,7 +123,10 @@
       letter-spacing: -.02em;
       text-align: center;
       animation: fadeUp .4s .07s ease both;
+      transition: opacity .18s ease;
     }
+
+    h1.fading { opacity: 0; }
 
     h1 .accent {
       display: block;
@@ -141,7 +144,10 @@
       line-height: 1.55;
       padding: 0 24px;
       animation: fadeUp .4s .13s ease both;
+      transition: opacity .18s ease;
     }
+
+    .sub.fading { opacity: 0; }
 
     /* ── Carousel ── */
     .carousel-wrap {
@@ -401,6 +407,46 @@
       font-weight: 600;
     }
 
+    /* ── Apple Health badge ── */
+    .health-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: .62rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 100px;
+      padding: 3px 8px;
+    }
+
+    .health-heart { color: #ff375f; font-size: .75rem; }
+
+    .track-trend {
+      font-family: 'Chakra Petch', sans-serif;
+      font-size: .65rem;
+      font-weight: 600;
+    }
+
+    .track-trend.up   { color: var(--neon); }
+    .track-trend.down { color: var(--red); }
+    .track-trend.ok   { color: var(--blue); }
+
+    .card-footer-note {
+      margin-top: 12px;
+      padding-top: 10px;
+      border-top: 1px solid var(--border);
+      font-size: .7rem;
+      color: var(--muted);
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    .card-footer-note strong { color: var(--text); }
+
     /* ── Dots ── */
     .dots {
       display: flex;
@@ -464,10 +510,10 @@
       <img src="/transparenticon.png" alt="ChromaFit" width="80" height="80">
       <span>ChromaFit</span>
     </div>
-    <h1>What's your<br><span class="accent">physique score?</span></h1>
+    <h1 id="h1"><span id="h1-line1">What's your</span><br><span class="accent" id="h1-line2">physique score?</span></h1>
   </div>
 
-  <p class="sub">AI scores every muscle group from a photo.<br>Takes 10 seconds. Free on iOS.</p>
+  <p class="sub" id="sub">AI scores every muscle group from a photo. Takes 10 seconds. Free on iOS.</p>
 
   <!-- Carousel -->
   <div class="carousel-wrap">
@@ -529,41 +575,45 @@
 
       <!-- Card 3: Full-Body Tracking -->
       <div class="card">
-        <div class="card-header">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4384ec" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/>
-            <rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>
-          </svg>
-          <span>Full-Body Tracking</span>
+        <div class="card-header" style="justify-content:space-between">
+          <div style="display:flex;align-items:center;gap:7px">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4384ec" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/>
+              <rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>
+            </svg>
+            <span>Color-Coded Rooms</span>
+          </div>
+          <span class="health-badge"><span class="health-heart">♥</span> Apple Health</span>
         </div>
         <div class="track-rows">
           <div>
             <div class="track-top">
-              <span class="track-label" style="color:var(--red)">Calories</span>
-              <span class="track-val">1,840 / 2,200</span>
+              <span class="track-label" style="color:var(--red)">🔴 Calories</span>
+              <span class="track-val">1,840 / 2,200 &nbsp;<span class="track-trend ok">↓ avg this week</span></span>
             </div>
             <div class="track-bar-track"><div class="track-bar-fill d1" style="width:84%;background:var(--red);box-shadow:0 0 8px rgba(229,66,49,.45)"></div></div>
           </div>
           <div>
             <div class="track-top">
-              <span class="track-label" style="color:var(--green)">Steps</span>
-              <span class="track-val">8,432 / 10,000</span>
+              <span class="track-label" style="color:var(--green)">🟢 Steps</span>
+              <span class="track-val">8,432 / 10,000 &nbsp;<span class="track-trend up">↑ +12%</span></span>
             </div>
             <div class="track-bar-track"><div class="track-bar-fill d2" style="width:84%;background:var(--green);box-shadow:0 0 8px rgba(53,160,82,.45)"></div></div>
           </div>
           <div>
             <div class="track-top">
-              <span class="track-label" style="color:var(--blue)">Water</span>
-              <span class="track-val">2.1L / 2.5L</span>
+              <span class="track-label" style="color:var(--blue)">🔵 Water</span>
+              <span class="track-val">2.1L / 2.5L &nbsp;<span class="track-trend ok">on track</span></span>
             </div>
             <div class="track-bar-track"><div class="track-bar-fill d3" style="width:84%;background:var(--blue);box-shadow:0 0 8px rgba(67,132,236,.45)"></div></div>
           </div>
           <div class="weight-row">
-            <span class="weight-label">Weight</span>
+            <span class="weight-label">🟡 Weight</span>
             <span class="weight-val">178 lbs</span>
-            <span class="weight-trend">↓ 2.3 lbs</span>
+            <span class="weight-trend">↓ 2.3 lbs this month</span>
           </div>
         </div>
+        <p class="card-footer-note">Steps & calories burned sync from <strong>Apple Health</strong> · 30-day history & trends</p>
       </div>
 
     </div>
@@ -594,17 +644,56 @@
 
 <script>
   const carousel = document.getElementById('carousel');
-  const dots = document.querySelectorAll('.dot');
+  const dots     = document.querySelectorAll('.dot');
+  const h1       = document.getElementById('h1');
+  const line1    = document.getElementById('h1-line1');
+  const line2    = document.getElementById('h1-line2');
+  const sub      = document.getElementById('sub');
+
+  const copy = [
+    {
+      line1: "What's your",
+      line2: "physique score?",
+      sub:   "AI scores every muscle group from a photo. Takes 10 seconds. Free on iOS."
+    },
+    {
+      line1: "Scan your meal.",
+      line2: "Know your macros.",
+      sub:   "Point your camera at any food — instant calories, protein, carbs and fat. No barcode needed."
+    },
+    {
+      line1: "Your fitness,",
+      line2: "color-coded.",
+      sub:   "Four rooms with trends, 30-day history & Apple Health sync for steps and calories burned."
+    }
+  ];
+
+  let currentIndex = 0;
+
+  function updateCopy(index) {
+    if (index === currentIndex) return;
+    currentIndex = index;
+    h1.classList.add('fading');
+    sub.classList.add('fading');
+    setTimeout(() => {
+      line1.textContent = copy[index].line1;
+      line2.textContent = copy[index].line2;
+      sub.textContent   = copy[index].sub;
+      h1.classList.remove('fading');
+      sub.classList.remove('fading');
+    }, 180);
+  }
 
   carousel.addEventListener('scroll', () => {
-    const index = Math.round(carousel.scrollLeft / carousel.offsetWidth);
+    const index = Math.round(carousel.scrollLeft / (carousel.scrollWidth / 3));
     dots.forEach((d, i) => d.classList.toggle('active', i === index));
+    updateCopy(index);
   }, { passive: true });
 
   dots.forEach(dot => {
     dot.addEventListener('click', () => {
       const i = +dot.dataset.index;
-      carousel.scrollTo({ left: i * carousel.offsetWidth, behavior: 'smooth' });
+      carousel.scrollTo({ left: i * (carousel.scrollWidth / 3), behavior: 'smooth' });
     });
   });
 </script>
