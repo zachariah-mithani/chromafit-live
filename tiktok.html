@@ -495,6 +495,113 @@
 
     .stars span { color: var(--yellow); }
 
+    /* ── Safari prompt overlay ── */
+    .safari-prompt {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      display: flex;
+      align-items: flex-end;
+      background: rgba(0,0,0,.6);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .25s ease;
+    }
+
+    .safari-prompt.visible {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .safari-sheet {
+      width: 100%;
+      background: #1c1e1f;
+      border-top: 1px solid rgba(255,255,255,.1);
+      border-radius: 20px 20px 0 0;
+      padding: 24px 24px max(28px, env(safe-area-inset-bottom));
+      transform: translateY(100%);
+      transition: transform .3s cubic-bezier(.22,1,.36,1);
+    }
+
+    .safari-prompt.visible .safari-sheet {
+      transform: translateY(0);
+    }
+
+    .safari-sheet h3 {
+      font-family: 'Chakra Petch', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+      text-align: center;
+    }
+
+    .safari-sheet p {
+      font-size: .85rem;
+      color: var(--muted);
+      text-align: center;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .safari-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .safari-step {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255,255,255,.04);
+      border-radius: 12px;
+      padding: 10px 14px;
+    }
+
+    .step-num {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--red);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Chakra Petch', sans-serif;
+      font-size: .7rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .step-text {
+      font-size: .85rem;
+      font-weight: 500;
+      line-height: 1.4;
+    }
+
+    .step-text code {
+      font-family: 'Chakra Petch', sans-serif;
+      background: rgba(255,255,255,.1);
+      padding: 1px 6px;
+      border-radius: 4px;
+      font-size: .8rem;
+    }
+
+    .safari-dismiss {
+      width: 100%;
+      padding: 14px;
+      background: rgba(255,255,255,.07);
+      border: none;
+      border-radius: 12px;
+      color: var(--muted);
+      font-family: 'Manrope', sans-serif;
+      font-size: .9rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(14px); }
       to   { opacity: 1; transform: translateY(0); }
@@ -628,10 +735,9 @@
 
   <!-- App Store -->
   <div class="badge-wrap">
-    <a
-      href="https://apps.apple.com/us/app/chromafit/id6757875996?utm_source=tiktok&utm_medium=social&utm_campaign=organic"
-      target="_blank" rel="noopener"
-      onclick="gtag('event','tiktok_cta_click',{event_category:'conversion',event_label:'badge'})"
+    <a id="store-link"
+      href="itms-apps://apps.apple.com/us/app/chromafit/id6757875996"
+      onclick="handleStoreClick(event)"
     >
       <img class="app-badge"
         src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83"
@@ -642,7 +748,57 @@
 
 </main>
 
+<!-- Safari prompt (shown when TikTok in-app browser detected) -->
+<div class="safari-prompt" id="safari-prompt">
+  <div class="safari-sheet">
+    <h3>Open in Safari to Download</h3>
+    <p>TikTok's browser blocks App Store links.<br>Follow these steps:</p>
+    <div class="safari-steps">
+      <div class="safari-step">
+        <div class="step-num">1</div>
+        <span class="step-text">Tap <code>···</code> in the top-right corner</span>
+      </div>
+      <div class="safari-step">
+        <div class="step-num">2</div>
+        <span class="step-text">Tap <code>Open in Safari</code></span>
+      </div>
+      <div class="safari-step">
+        <div class="step-num">3</div>
+        <span class="step-text">Tap <code>Download on the App Store</code></span>
+      </div>
+    </div>
+    <button class="safari-dismiss" onclick="closePrompt()">Got it</button>
+  </div>
+</div>
+
 <script>
+  // ── TikTok in-app browser detection & App Store routing ──
+  const isTikTok = /musical_ly|TikTok|BytedanceWebview/i.test(navigator.userAgent);
+
+  function handleStoreClick(e) {
+    gtag('event', 'tiktok_cta_click', { event_category: 'conversion', event_label: 'badge' });
+    if (isTikTok) {
+      e.preventDefault();
+      // Try itms-apps:// — opens App Store directly if supported
+      window.location.href = 'itms-apps://apps.apple.com/us/app/chromafit/id6757875996';
+      // After 1.5s, if still here, show the Safari prompt
+      setTimeout(() => {
+        document.getElementById('safari-prompt').classList.add('visible');
+      }, 1500);
+    }
+    // Non-TikTok browsers: let the itms-apps:// href fire normally
+  }
+
+  function closePrompt() {
+    document.getElementById('safari-prompt').classList.remove('visible');
+  }
+
+  // Tap backdrop to dismiss
+  document.getElementById('safari-prompt').addEventListener('click', function(e) {
+    if (e.target === this) closePrompt();
+  });
+
+  // ── Carousel ──
   const carousel = document.getElementById('carousel');
   const dots     = document.querySelectorAll('.dot');
   const h1       = document.getElementById('h1');
